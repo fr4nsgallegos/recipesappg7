@@ -11,11 +11,19 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  String title = "";
-
   TextEditingController titleController = TextEditingController();
   TextEditingController descriptionController = TextEditingController();
   TextEditingController urlImageController = TextEditingController();
+
+  List<Map<String, dynamic>> recipes = [
+    {
+      "title": "Wafles",
+      "description":
+          "Primero agregamos la leche, huevos, azúcar, sal y esencia de vainilla en nuestra licuadora y mezclamos bien durante 2 minutos.Luego con un colador tamizamos la harina y el polvo de hornear. Luego los incluimos en la mezcla anterior y mezclamos hasta formar una pasta lisa y uniforme.",
+      "urlImage":
+          "https://images.pexels.com/photos/376464/pexels-photo-376464.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    },
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -52,7 +60,13 @@ class _HomePageState extends State<HomePage> {
                   height: 48,
                   child: ElevatedButton(
                     onPressed: () {
-                      print(titleController.text);
+                      Map<String, dynamic> auxRecipe = {
+                        "title": titleController.text,
+                        "description": descriptionController.text,
+                        "urlImage": urlImageController.text,
+                      };
+                      recipes.add(auxRecipe);
+                      setState(() {});
                     },
                     style: ElevatedButton.styleFrom(
                       shape: RoundedRectangleBorder(
@@ -82,12 +96,14 @@ class _HomePageState extends State<HomePage> {
                     color: Colors.white,
                   ),
                 ),
-                RecipeItem(
-                    urlImage:
-                        "https://images.pexels.com/photos/376464/pexels-photo-376464.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-                    title: "Wafles",
-                    description:
-                        "Primero agregamos la leche, huevos, azúcar, sal y esencia de vainilla en nuestra licuadora y mezclamos bien durante 2 minutos.Luego con un colador tamizamos la harina y el polvo de hornear. Luego los incluimos en la mezcla anterior y mezclamos hasta formar una pasta lisa y uniforme."),
+                //mostrando lista
+                ...recipes
+                    .map((e) => RecipeItem(
+                          urlImage: e["urlImage"],
+                          description: e["description"],
+                          title: e["title"],
+                        ))
+                    .toList()
               ],
             ),
           ),
