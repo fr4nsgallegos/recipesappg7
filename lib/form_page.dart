@@ -6,6 +6,7 @@ class FormPage extends StatefulWidget {
   State<FormPage> createState() => _FormPageState();
 }
 
+//OJOOOOOO-> es importante que la funcion de _validateTiltle se ejecute para manejar el estado del form, si esta no se ejecuta el form siempre va a tener un estado true, asi no llenemos data en el textformfield, por ello podriamos llamar a la función _validateTile al inicio o al presionar el botón agregar
 class _FormPageState extends State<FormPage> {
   final _formKey = GlobalKey<FormState>();
   TextEditingController _titleController = TextEditingController();
