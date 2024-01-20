@@ -7,20 +7,24 @@ class FormPage extends StatefulWidget {
 }
 
 class _FormPageState extends State<FormPage> {
-  final _formKey = GlobalKey<FormState>();
+  var _formKey = GlobalKey<FormState>();
   TextEditingController _titleController = TextEditingController();
   String? _titleErrorText;
 
   void _validateTitle(String? value) {
-    if (value == null) {
-      _titleErrorText = "El titulo no debe estar vacio";
-      setState(() {});
+    setState(() {});
+    if (value == null || value.isEmpty || value == "") {
+      print("entroooooooooooooooooooooooooooooooooooooooooooooooooooooooo");
+      setState(() {
+        _titleErrorText = "El titulo no debe estar vacio";
+      });
     } else if (isValidTitle(value) == false) {
       _titleErrorText = "Se excedio el tamaño del valor";
       setState(() {});
     } else {
-      _titleErrorText = null;
-      setState(() {});
+      setState(() {
+        _titleErrorText = null;
+      });
     }
   }
 
@@ -32,9 +36,12 @@ class _FormPageState extends State<FormPage> {
   }
 
   void _submitForm() {
-    if (_formKey.currentState!.validate()) {
+    if (_formKey.currentState?.validate() == true) {
+      setState(() {});
       print("Se subió correctamente");
       print(_titleController.text);
+    } else {
+      print("No es valuido");
     }
   }
 
@@ -45,15 +52,14 @@ class _FormPageState extends State<FormPage> {
       body: Padding(
         padding: const EdgeInsets.all(24.0),
         child: Form(
+          autovalidateMode: AutovalidateMode.always,
           key: _formKey,
           child: Column(
             children: [
               TextFormField(
                 controller: _titleController,
-                validator: (value) {
-                  return _titleErrorText;
-                },
-                onChanged: (value) => _validateTitle(value),
+                validator: (value) => _titleErrorText,
+                onChanged: _validateTitle,
                 style: TextStyle(
                   color: Colors.white,
                 ),
