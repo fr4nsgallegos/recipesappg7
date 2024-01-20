@@ -45,6 +45,8 @@ class HomePage extends StatelessWidget {
                   ],
                   //tipo de teclado
                   keyboardType: TextInputType.name,
+                  //ocultar texto (generalmente para contraseñas)
+                  obscureText: true,
                   controller: titleController,
                   decoration: InputDecoration(
                     contentPadding:
