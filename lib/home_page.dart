@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:recipesappg7/widgets/recipe_item.dart';
+import 'package:recipesappg7/widgets/widgets.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -12,9 +14,7 @@ class _HomePageState extends State<HomePage> {
   String title = "";
 
   TextEditingController titleController = TextEditingController();
-
   TextEditingController descriptionController = TextEditingController();
-
   TextEditingController urlImageController = TextEditingController();
 
   @override
@@ -38,171 +38,22 @@ class _HomePageState extends State<HomePage> {
                 ),
                 Divider(),
                 //estados textfiel: Enabled Focus, error disable
-                TextField(
-                  style: TextStyle(
-                    color: Colors.white,
-                  ),
-                  cursorColor: Color(0xffEDA971),
-                  inputFormatters: [
-                    LengthLimitingTextInputFormatter(35),
-                    // FilteringTextInputFormatter(
-                    //   RegExp(r'[0-9]'),
-                    //   allow: false,
-                    // ),
-                    // FilteringTextInputFormatter.allow(RegExp(r'[0-9]'))
-                    FilteringTextInputFormatter.deny(RegExp(r'[0-9]'))
-                  ],
-                  //tipo de teclado
-                  keyboardType: TextInputType.name,
-                  //ocultar texto (generalmente para contraseñas)
-                  obscureText: true,
-                  controller: titleController,
-                  decoration: InputDecoration(
-                    contentPadding:
-                        EdgeInsets.symmetric(vertical: 8, horizontal: 16),
-                    labelStyle: TextStyle(color: Colors.orange),
-                    hintText: "Sugerencia de nombre de ttulo",
-                    hintStyle: TextStyle(color: Colors.white),
-                    filled: true,
-                    fillColor: Color(0xff626B92),
-                    prefixIcon: SvgPicture.asset(
-                      "assets/icons/type.svg",
-                      fit: BoxFit.scaleDown,
-                      colorFilter: ColorFilter.mode(
-                        Colors.white54,
-                        BlendMode.srcIn,
-                      ),
-                    ),
-                    enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(15),
-                      borderSide: BorderSide.none,
+                formulario(titleController, "Ingresa el título", "type"),
+                formulario(descriptionController, "Ingresa la descripción",
+                    "align-justify"),
+                formulario(
+                    urlImageController, "Ingresa la url de la imagen", "image"),
 
-                      // borderSide: BorderSide(
-                      //   color: Colors.black26,
-                      //   width: 1,
-                      // ),
-                    ),
-                    focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(15),
-                        borderSide: BorderSide.none
-                        // borderSide: BorderSide(
-                        //   color: Colors.black26,
-                        //   width: 1.5,
-                        // ),
-                        ),
-                  ),
-                  // onChanged: (String value) {
-                  //   print(value);
-                  //   title = value;
-                  //   print("title: $title");
-                  // },
-                ),
                 SizedBox(
                   height: 16,
-                ),
-                TextField(
-                  style: TextStyle(color: Colors.white),
-                  cursorColor: Color(0xffEDA971),
-
-                  controller: descriptionController,
-                  decoration: InputDecoration(
-                    contentPadding:
-                        EdgeInsets.symmetric(vertical: 8, horizontal: 16),
-                    labelStyle: TextStyle(color: Colors.orange),
-                    hintText: "Sugerencia de nombre de descripción",
-                    hintStyle: TextStyle(color: Colors.white),
-                    filled: true,
-                    fillColor: Color(0xff626B92),
-                    prefixIcon: SvgPicture.asset(
-                      "assets/icons/align-justify.svg",
-                      fit: BoxFit.scaleDown,
-                      colorFilter: ColorFilter.mode(
-                        Colors.white54,
-                        BlendMode.srcIn,
-                      ),
-                    ),
-                    enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(15),
-                      borderSide: BorderSide.none,
-
-                      // borderSide: BorderSide(
-                      //   color: Colors.black26,
-                      //   width: 1,
-                      // ),
-                    ),
-                    focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(15),
-                        borderSide: BorderSide.none
-                        // borderSide: BorderSide(
-                        //   color: Colors.black26,
-                        //   width: 1.5,
-                        // ),
-                        ),
-                  ),
-                  // onChanged: (String value) {
-                  //   print(value);
-                  //   title = value;
-                  //   print("title: $title");
-                  // },
-                ),
-                SizedBox(
-                  height: 16,
-                ),
-                TextField(
-                  style: TextStyle(color: Colors.white),
-                  cursorColor: Color(0xffEDA971),
-                  // cursorHeight: 50,
-                  // cursorRadius: Radius.circular(20),
-                  // cursorWidth: 20,
-                  controller: urlImageController,
-                  decoration: InputDecoration(
-                    contentPadding:
-                        EdgeInsets.symmetric(vertical: 8, horizontal: 16),
-                    labelStyle: TextStyle(color: Colors.orange),
-                    hintText: "Sugerencia de URL",
-                    hintStyle: TextStyle(color: Colors.white),
-                    filled: true,
-                    fillColor: Color(0xff626B92),
-                    prefixIcon: SvgPicture.asset(
-                      "assets/icons/image.svg",
-                      fit: BoxFit.scaleDown,
-                      colorFilter: ColorFilter.mode(
-                        Colors.white54,
-                        BlendMode.srcIn,
-                      ),
-                    ),
-                    enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(15),
-                      borderSide: BorderSide.none,
-
-                      // borderSide: BorderSide(
-                      //   color: Colors.black26,
-                      //   width: 1,
-                      // ),
-                    ),
-                    focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(15),
-                        borderSide: BorderSide.none
-                        // borderSide: BorderSide(
-                        //   color: Colors.black26,
-                        //   width: 1.5,
-                        // ),
-                        ),
-                  ),
-                  // onChanged: (String value) {
-                  //   print(value);
-                  //   title = value;
-                  //   print("title: $title");
-                  // },
-                ),
-                SizedBox(
-                  height: 24,
                 ),
                 SizedBox(
                   width: double.infinity,
                   height: 48,
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      print(titleController.text);
+                    },
                     style: ElevatedButton.styleFrom(
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(30),
@@ -231,56 +82,12 @@ class _HomePageState extends State<HomePage> {
                     color: Colors.white,
                   ),
                 ),
-
-                Container(
-                  padding: EdgeInsets.all(16),
-                  margin: EdgeInsets.symmetric(vertical: 16),
-                  decoration: BoxDecoration(
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.black.withOpacity(0.5),
-                        offset: Offset(5, 5),
-                        blurRadius: 8,
-                      ),
-                    ],
-                    borderRadius: BorderRadius.circular(16),
-                    color: Color(0xff626B92).withOpacity(0.3),
-                  ),
-                  width: double.infinity,
-                  child: Column(
-                    children: [
-                      ClipRRect(
-                        borderRadius: BorderRadius.circular(16),
-                        child: Image.network(
-                          "https://images.pexels.com/photos/7801318/pexels-photo-7801318.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-                          height: 200,
-                          fit: BoxFit.cover,
-                          width: double.infinity,
-                          alignment: Alignment.topCenter,
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.symmetric(vertical: 8),
-                        child: Text(
-                          "Lomo Saltado",
-                          style: TextStyle(
-                            fontSize: 24,
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
-                      Text(
-                        "El lomo saltado es un plato infaltable en nuestras mesas y se caracteriza por la sencillez de su preparación que requiere –además de los ingredientes básicos como la carne, la papa y el arroz– de una sartén (o wok) caliente para dar vida a unos de los sabores más representativos de la gastronomía nacional.",
-                        style: TextStyle(
-                          fontSize: 16,
-                          color: Colors.white60,
-                        ),
-                        maxLines: 3,
-                        overflow: TextOverflow.ellipsis,
-                      )
-                    ],
-                  ),
-                )
+                RecipeItem(
+                    urlImage:
+                        "https://images.pexels.com/photos/376464/pexels-photo-376464.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+                    title: "Wafles",
+                    description:
+                        "Primero agregamos la leche, huevos, azúcar, sal y esencia de vainilla en nuestra licuadora y mezclamos bien durante 2 minutos.Luego con un colador tamizamos la harina y el polvo de hornear. Luego los incluimos en la mezcla anterior y mezclamos hasta formar una pasta lisa y uniforme."),
               ],
             ),
           ),

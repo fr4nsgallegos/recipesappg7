@@ -6,7 +6,7 @@ import 'package:recipesappg7/home_page.dart';
 void main() {
   runApp(
     MaterialApp(
-      home: FormPage(),
+      home: HomePage(),
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         textTheme: GoogleFonts.robotoTextTheme(),
