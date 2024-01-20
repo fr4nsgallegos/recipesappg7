@@ -7,22 +7,22 @@ class FormPage extends StatefulWidget {
 }
 
 class _FormPageState extends State<FormPage> {
-  var _formKey = GlobalKey<FormState>();
+  final _formKey = GlobalKey<FormState>();
   TextEditingController _titleController = TextEditingController();
   String? _titleErrorText;
 
   void _validateTitle(String? value) {
-    setState(() {});
     if (value == null || value.isEmpty || value == "") {
-      print("entroooooooooooooooooooooooooooooooooooooooooooooooooooooooo");
       setState(() {
         _titleErrorText = "El titulo no debe estar vacio";
       });
+      print(value);
     } else if (isValidTitle(value) == false) {
       _titleErrorText = "Se excedio el tamaño del valor";
       setState(() {});
     } else {
       setState(() {
+        print(value);
         _titleErrorText = null;
       });
     }
@@ -36,6 +36,9 @@ class _FormPageState extends State<FormPage> {
   }
 
   void _submitForm() {
+    _validateTitle(_titleController.text);
+    print(_formKey.currentState?.validate() ?? "es null");
+
     if (_formKey.currentState?.validate() == true) {
       setState(() {});
       print("Se subió correctamente");
@@ -43,6 +46,13 @@ class _FormPageState extends State<FormPage> {
     } else {
       print("No es valuido");
     }
+  }
+
+  @override
+  void initState() {
+    _validateTitle(_titleController.text);
+    // TODO: implement initState
+    super.initState();
   }
 
   @override
@@ -59,7 +69,7 @@ class _FormPageState extends State<FormPage> {
               TextFormField(
                 controller: _titleController,
                 validator: (value) => _titleErrorText,
-                onChanged: _validateTitle,
+                onChanged: (valor) => _validateTitle(valor),
                 style: TextStyle(
                   color: Colors.white,
                 ),
@@ -98,7 +108,12 @@ class _FormPageState extends State<FormPage> {
                 height: 48,
                 child: ElevatedButton(
                   onPressed: () {
-                    _submitForm();
+                    _submitForm(); // if (_titleController.text == null) {
+                    //   print(_titleController.text);
+                    //   _submitForm();
+                    // } else {
+                    //   return null;
+                    // }
                   },
                   style: ElevatedButton.styleFrom(
                     shape: RoundedRectangleBorder(
