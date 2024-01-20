@@ -3,6 +3,9 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class HomePage extends StatelessWidget {
+  String title = "";
+  TextEditingController titleController = TextEditingController();
+  TextEditingController descriptionController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -24,6 +27,7 @@ class HomePage extends StatelessWidget {
                 Divider(),
                 //estados textfiel: Enabled Focus, error disable
                 TextField(
+                  controller: titleController,
                   decoration: InputDecoration(
                     contentPadding:
                         EdgeInsets.symmetric(vertical: 8, horizontal: 16),
@@ -57,6 +61,55 @@ class HomePage extends StatelessWidget {
                         // ),
                         ),
                   ),
+                  // onChanged: (String value) {
+                  //   print(value);
+                  //   title = value;
+                  //   print("title: $title");
+                  // },
+                ),
+                SizedBox(
+                  height: 16,
+                ),
+                TextField(
+                  controller: descriptionController,
+                  decoration: InputDecoration(
+                    contentPadding:
+                        EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+                    labelStyle: TextStyle(color: Colors.orange),
+                    hintText: "Sugerencia de nombre de descripción",
+                    filled: true,
+                    fillColor: Colors.black12,
+                    prefixIcon: SvgPicture.asset(
+                      "assets/icons/align-justify.svg",
+                      fit: BoxFit.scaleDown,
+                      colorFilter: ColorFilter.mode(
+                        Colors.black45,
+                        BlendMode.srcIn,
+                      ),
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(15),
+                      borderSide: BorderSide.none,
+
+                      // borderSide: BorderSide(
+                      //   color: Colors.black26,
+                      //   width: 1,
+                      // ),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(15),
+                        borderSide: BorderSide.none
+                        // borderSide: BorderSide(
+                        //   color: Colors.black26,
+                        //   width: 1.5,
+                        // ),
+                        ),
+                  ),
+                  // onChanged: (String value) {
+                  //   print(value);
+                  //   title = value;
+                  //   print("title: $title");
+                  // },
                 ),
               ],
             ),
