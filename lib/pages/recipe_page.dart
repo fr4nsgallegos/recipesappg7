@@ -18,6 +18,12 @@ class RecipePage extends StatelessWidget {
         backgroundColor: Color(0xff29304B),
         title: Text(title.toUpperCase()),
         centerTitle: true,
+        leading: IconButton(
+          icon: Icon(Icons.arrow_left_sharp),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 24),
