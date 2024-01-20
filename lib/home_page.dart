@@ -67,6 +67,9 @@ class _HomePageState extends State<HomePage> {
                       };
                       recipes.add(auxRecipe);
                       setState(() {});
+                      titleController.clear();
+                      descriptionController.clear();
+                      urlImageController.clear();
                     },
                     style: ElevatedButton.styleFrom(
                       shape: RoundedRectangleBorder(
