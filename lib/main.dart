@@ -9,7 +9,7 @@ void main() {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         textTheme: GoogleFonts.robotoTextTheme(),
-        primaryColor: Colors.white,
+        // primaryColor: Colors.white,
       ),
     ),
   );

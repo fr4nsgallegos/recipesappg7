@@ -29,6 +29,11 @@ class HomePage extends StatelessWidget {
                 Divider(),
                 //estados textfiel: Enabled Focus, error disable
                 TextField(
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
+                  cursorColor: Color(0xffEDA971),
+
                   controller: titleController,
                   decoration: InputDecoration(
                     contentPadding:
@@ -74,6 +79,9 @@ class HomePage extends StatelessWidget {
                   height: 16,
                 ),
                 TextField(
+                  style: TextStyle(color: Colors.white),
+                  cursorColor: Color(0xffEDA971),
+
                   controller: descriptionController,
                   decoration: InputDecoration(
                     contentPadding:
@@ -119,6 +127,11 @@ class HomePage extends StatelessWidget {
                   height: 16,
                 ),
                 TextField(
+                  style: TextStyle(color: Colors.white),
+                  cursorColor: Color(0xffEDA971),
+                  // cursorHeight: 50,
+                  // cursorRadius: Radius.circular(20),
+                  // cursorWidth: 20,
                   controller: urlImageController,
                   decoration: InputDecoration(
                     contentPadding:
@@ -181,6 +194,51 @@ class HomePage extends StatelessWidget {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
+                  ),
+                ),
+                Divider(
+                  height: 40,
+                  thickness: 3,
+                  color: Color(0xff626B92),
+                ),
+                Text(
+                  "Listado General",
+                  style: TextStyle(
+                    fontSize: 25,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
+                ),
+                Container(
+                  padding: EdgeInsets.all(16),
+                  decoration: BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.yellow,
+                        offset: Offset(5, 5),
+                        blurRadius: 8,
+                      ),
+                    ],
+                    borderRadius: BorderRadius.circular(16),
+                    color: Colors.red,
+                  ),
+                  width: double.infinity,
+                  child: Column(
+                    children: [
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(16),
+                        child: Image.network(
+                          "https://images.pexels.com/photos/7801318/pexels-photo-7801318.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+                          height: 200,
+                          fit: BoxFit.cover,
+                          width: double.infinity,
+                          alignment: Alignment.topCenter,
+                        ),
+                      ),
+                      Text("Lomo Saltado"),
+                      Text(
+                          "El lomo saltado es un plato infaltable en nuestras mesas y se caracteriza por la sencillez de su preparación que requiere –además de los ingredientes básicos como la carne, la papa y el arroz– de una sartén (o wok) caliente para dar vida a unos de los sabores más representativos de la gastronomía nacional.")
+                    ],
                   ),
                 )
               ],
