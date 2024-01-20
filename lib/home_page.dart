@@ -36,10 +36,12 @@ class HomePage extends StatelessWidget {
                   cursorColor: Color(0xffEDA971),
                   inputFormatters: [
                     LengthLimitingTextInputFormatter(5),
-                    FilteringTextInputFormatter(
-                      RegExp(r'[0-9]'),
-                      allow: false,
-                    )
+                    // FilteringTextInputFormatter(
+                    //   RegExp(r'[0-9]'),
+                    //   allow: false,
+                    // ),
+                    FilteringTextInputFormatter.allow(RegExp(r'[0-9]'))
+                    // FilteringTextInputFormatter.deny(RegExp(r'[0-9]'))
                   ],
                   controller: titleController,
                   decoration: InputDecoration(
