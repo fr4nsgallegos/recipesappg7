@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -11,11 +12,13 @@ class HomePage extends StatelessWidget {
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: 24, vertical: 16),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "MIS RECETAS",
+                  "Mis recetas",
                   style: TextStyle(
                     fontSize: 30,
+                    fontWeight: FontWeight.w500,
                   ),
                 ),
                 Divider(),
