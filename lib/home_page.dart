@@ -35,14 +35,16 @@ class HomePage extends StatelessWidget {
                   ),
                   cursorColor: Color(0xffEDA971),
                   inputFormatters: [
-                    LengthLimitingTextInputFormatter(5),
+                    LengthLimitingTextInputFormatter(35),
                     // FilteringTextInputFormatter(
                     //   RegExp(r'[0-9]'),
                     //   allow: false,
                     // ),
-                    FilteringTextInputFormatter.allow(RegExp(r'[0-9]'))
-                    // FilteringTextInputFormatter.deny(RegExp(r'[0-9]'))
+                    // FilteringTextInputFormatter.allow(RegExp(r'[0-9]'))
+                    FilteringTextInputFormatter.deny(RegExp(r'[0-9]'))
                   ],
+                  //tipo de teclado
+                  keyboardType: TextInputType.name,
                   controller: titleController,
                   decoration: InputDecoration(
                     contentPadding:
