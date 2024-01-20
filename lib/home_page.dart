@@ -21,7 +21,23 @@ class HomePage extends StatelessWidget {
                     labelStyle: TextStyle(color: Colors.orange),
                     labelText: "Ingresa el título",
                     hintStyle: TextStyle(color: Colors.red),
+                    hintMaxLines: 2,
                     hintText: "Sugerencia de nombre de receta",
+                    icon: Icon(Icons.title_outlined),
+                    prefixIcon: Icon(Icons.people),
+                    // prefixText: "hola: ",
+                    // prefix: Container(
+                    //   height: 10,
+                    //   width: 20,
+                    //   color: Colors.red,
+                    // ),
+                    // suffix: Container(
+                    //   width: 30,
+                    //   height: 10,
+                    //   color: Colors.cyan,
+                    // ),
+                    suffixIcon: Icon(Icons.delete),
+                    // suffixText: "sffixxx",
                   ),
                 ),
                 // TextField(
