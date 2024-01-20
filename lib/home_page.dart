@@ -3,11 +3,20 @@ import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
   String title = "";
+
   TextEditingController titleController = TextEditingController();
+
   TextEditingController descriptionController = TextEditingController();
+
   TextEditingController urlImageController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
