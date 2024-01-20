@@ -5,47 +5,35 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        backgroundColor: Colors.white,
         body: SingleChildScrollView(
           child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 24),
+            padding: EdgeInsets.symmetric(horizontal: 24, vertical: 16),
             child: Column(
               children: [
+                //estados textfiel: Enabled Focus, error disable
                 TextField(
                   decoration: InputDecoration(
-                    // label: Row(
-                    //   children: [
-                    //     Icon(Icons.title),
-                    //     Text("Título"),
-                    //   ],
-                    // ),
                     labelStyle: TextStyle(color: Colors.orange),
-                    labelText: "Ingresa el título",
-                    hintStyle: TextStyle(color: Colors.red),
-                    hintMaxLines: 2,
-                    hintText: "Sugerencia de nombre de receta",
-                    icon: Icon(Icons.title_outlined),
-                    prefixIcon: Icon(Icons.people),
-                    // prefixText: "hola: ",
-                    // prefix: Container(
-                    //   height: 10,
-                    //   width: 20,
-                    //   color: Colors.red,
-                    // ),
-                    // suffix: Container(
-                    //   width: 30,
-                    //   height: 10,
-                    //   color: Colors.cyan,
-                    // ),
-                    suffixIcon: Icon(Icons.delete),
-                    // suffixText: "sffixxx",
+                    hintText: "Sugerencia de nombre de ttulo",
+                    filled: true,
+                    fillColor: Colors.white,
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(50),
+                      borderSide: BorderSide(
+                        color: Colors.black,
+                        width: 2,
+                      ),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(50),
+                      borderSide: BorderSide(
+                        color: Colors.green,
+                        width: 3,
+                      ),
+                    ),
                   ),
                 ),
-                // TextField(
-                //   decoration: InputDecoration(
-                //     labelText: "Ingresa el preparación",
-                //     hintText: "Sugerencia de preparación",
-                //   ),
-                // ),
               ],
             ),
           ),
