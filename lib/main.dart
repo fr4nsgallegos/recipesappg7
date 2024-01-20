@@ -7,13 +7,14 @@ import 'package:recipesappg7/pages/recipe_page.dart';
 void main() {
   runApp(
     MaterialApp(
-      home: RecipePage(
-        title: "Wafles",
-        description:
-            "Primero agregamos la leche, huevos, azúcar, sal y esencia de vainilla en nuestra licuadora y mezclamos bien durante 2 minutos.Luego con un colador tamizamos la harina y el polvo de hornear. Luego los incluimos en la mezcla anterior y mezclamos hasta formar una pasta lisa y uniforme.",
-        urlImage:
-            "https://images.pexels.com/photos/376464/pexels-photo-376464.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-      ),
+      home: HomePage(),
+      // home: RecipePage(
+      //   title: "Wafles",
+      //   description:
+      //       "Primero agregamos la leche, huevos, azúcar, sal y esencia de vainilla en nuestra licuadora y mezclamos bien durante 2 minutos.Luego con un colador tamizamos la harina y el polvo de hornear. Luego los incluimos en la mezcla anterior y mezclamos hasta formar una pasta lisa y uniforme.",
+      //   urlImage:
+      //       "https://images.pexels.com/photos/376464/pexels-photo-376464.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      // ),
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         textTheme: GoogleFonts.robotoTextTheme(),

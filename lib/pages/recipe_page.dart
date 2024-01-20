@@ -21,33 +21,31 @@ class RecipePage extends StatelessWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 24),
-        child: Column(
-          children: [
-            Column(
-              children: [
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(16),
-                  child: Image.network(
-                    urlImage,
-                    height: 200,
-                    fit: BoxFit.cover,
-                    width: double.infinity,
-                    alignment: Alignment.topCenter,
-                  ),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              ClipRRect(
+                borderRadius: BorderRadius.circular(16),
+                child: Image.network(
+                  urlImage,
+                  // height: 200,
+                  fit: BoxFit.cover,
+                  width: double.infinity,
+                  alignment: Alignment.topCenter,
                 ),
-                SizedBox(
-                  height: 24,
+              ),
+              SizedBox(
+                height: 24,
+              ),
+              Text(
+                description,
+                style: TextStyle(
+                  fontSize: 16,
+                  color: Colors.white60,
                 ),
-                Text(
-                  description,
-                  style: TextStyle(
-                    fontSize: 16,
-                    color: Colors.white60,
-                  ),
-                )
-              ],
-            ),
-          ],
+              )
+            ],
+          ),
         ),
       ),
     );
