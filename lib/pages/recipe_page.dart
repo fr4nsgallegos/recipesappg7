@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 
 class RecipePage extends StatelessWidget {
@@ -21,7 +23,10 @@ class RecipePage extends StatelessWidget {
         leading: IconButton(
           icon: Icon(Icons.arrow_left_sharp),
           onPressed: () {
-            Navigator.pop(context);
+            // Navigator.pop(context);
+
+            //cerrar el app
+            exit(0);
           },
         ),
       ),

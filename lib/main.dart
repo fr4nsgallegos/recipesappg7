@@ -2,12 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:recipesappg7/pages/form_page.dart';
 import 'package:recipesappg7/pages/home_page.dart';
+import 'package:recipesappg7/pages/list_view_page.dart';
 import 'package:recipesappg7/pages/recipe_page.dart';
 
 void main() {
   runApp(
     MaterialApp(
-      home: HomePage(),
+      home: ListViewPage(),
       // home: RecipePage(
       //   title: "Wafles",
       //   description:
