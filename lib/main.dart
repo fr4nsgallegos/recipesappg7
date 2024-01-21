@@ -8,7 +8,7 @@ import 'package:recipesappg7/pages/recipe_page.dart';
 void main() {
   runApp(
     MaterialApp(
-      home: ListViewPage(),
+      home: HomePage(),
       // home: RecipePage(
       //   title: "Wafles",
       //   description:
