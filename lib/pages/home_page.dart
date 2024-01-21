@@ -116,16 +116,26 @@ class _HomePageState extends State<HomePage> {
                   color: Colors.white,
                 ),
               ),
-              Expanded(
-                child: ListView.builder(
-                  shrinkWrap: true,
-                  itemCount: 100,
-                  itemBuilder: (BuildContext context, int index) {
-                    return RecipeItem(
-                        urlImage: "aasdasd",
-                        description: "asdasda",
-                        title: "saasd");
-                  },
+              Container(
+                child: SizedBox(
+                  height: 300,
+                  width: double.infinity,
+                  child: ListView.builder(
+                    shrinkWrap: true,
+                    itemCount: recipesModelList.length,
+                    scrollDirection: Axis.horizontal,
+                    itemBuilder: (BuildContext context, int index) {
+                      // return Text(
+                      //   "asdasd",
+                      //   style: TextStyle(color: Colors.white),
+                      // );
+                      return RecipeItem(
+                        urlImage: recipesModelList[index].urlImage,
+                        description: recipesModelList[index].description,
+                        title: recipesModelList[index].title,
+                      );
+                    },
+                  ),
                 ),
               ),
               // ...List.generate(

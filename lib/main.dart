@@ -4,11 +4,12 @@ import 'package:recipesappg7/pages/form_page.dart';
 import 'package:recipesappg7/pages/home_page.dart';
 import 'package:recipesappg7/pages/list_view_page.dart';
 import 'package:recipesappg7/pages/recipe_page.dart';
+import 'package:recipesappg7/pages/scroll_page.dart';
 
 void main() {
   runApp(
     MaterialApp(
-      home: HomePage(),
+      home: ScrollPage(),
       // home: RecipePage(
       //   title: "Wafles",
       //   description:

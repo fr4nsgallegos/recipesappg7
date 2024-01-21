@@ -40,7 +40,8 @@ class RecipeItem extends StatelessWidget {
           borderRadius: BorderRadius.circular(16),
           color: Color(0xff626B92).withOpacity(0.3),
         ),
-        width: double.infinity,
+        width: 500,
+        // width: double.infinity,
         child: Column(
           children: [
             ClipRRect(
