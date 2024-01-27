@@ -41,6 +41,24 @@ class ScrollPage extends StatelessWidget {
                 itemCount: 200,
               ),
             ),
+            SizedBox(
+              height: 20,
+            ),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                elevation: 10,
+                backgroundColor: Colors.white.withOpacity(1),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10.0),
+                  side: BorderSide(color: Colors.blue, width: 2.0),
+                ),
+              ),
+              onPressed: () {},
+              child: Text(
+                "PRESIONAR",
+                style: TextStyle(color: Colors.blue),
+              ),
+            ),
           ],
         ),
       ),
